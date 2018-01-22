@@ -1,6 +1,6 @@
 {
-  "name": "EvdenYemek",
-  "short_name": "EvdenYemek",
+  "name": "Kariyer.net",
+  "short_name": "Kariyer.net",
   "icons": [
     {
       "src": "/static/img/icons/192kariyer.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#912da2",
-  "theme_color": "#912da2"
+  "background_color": "#872b91",
+  "theme_color": "#872b91"
 }
