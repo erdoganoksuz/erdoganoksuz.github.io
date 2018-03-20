@@ -1,20 +1,15 @@
 {
-  "name": "Kariyer.net",
-  "short_name": "Kariyer.net",
+  "name": "haberportal",
+  "short_name": "haberportal",
   "icons": [
     {
-      "src": "/static/img/icons/192kariyer.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/static/img/icons/512kariyer.jpg",
+      "src": "/static/img/icons/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#872b91",
-  "theme_color": "#872b91"
+  "background_color": "#000000",
+  "theme_color": "#4DBA87"
 }
