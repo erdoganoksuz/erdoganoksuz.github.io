@@ -18,7 +18,7 @@ self.addEventListener('sync', function (event) {
 
 function fetchDogImage() {
   console.log('firing: doSomeStuff()');
-  fetch('https://jsonplaceholder.typicode.com/posts/1')
+  fetch('http://img7.mynet.com/galeri/2016/02/29/115015841/6299874-600x406.jpg')
     .then(function (response) {
       return response;
     })
