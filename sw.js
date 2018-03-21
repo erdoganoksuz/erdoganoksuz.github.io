@@ -1,31 +1,14 @@
-self.addEventListener('install', function (event) {
-  self.skipWaiting();
-});
+self.addEventListener('fetch', function (event) {
+  var req = event.request.clone();
+  if (req.clone().method == "GET") {
+    console.log("heyyy");
+    event.respondWith(
 
-self.addEventListener('activate', function (event) {
-  if (self.clients && clients.claim) {
-    clients.claim();
+      // Get the response from the network
+      fetch(req.clone()).then(function (response) {
+        // And store it in the cache for later
+        return cache.put(req.clone(), response);
+      })
+    );
   }
 });
-
-self.addEventListener('sync', function (event) {
-  console.log('firing: sync');
-  if (event.tag == 'image-fetch') {
-    console.log('sync event fired');
-    event.waitUntil(fetchDogImage());
-  }
-});
-
-function fetchDogImage() {
-  console.log('firing: doSomeStuff()');
-  fetch('https://static.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg')
-    .then(function (response) {
-      return response;
-    })
-    .then(function (text) {
-      console.log('Request successful', text);
-    })
-    .catch(function (error) {
-      console.log('Request failed', error);
-    });
-}

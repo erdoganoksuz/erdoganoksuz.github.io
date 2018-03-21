@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="UTF-8">
-  <title>Basic BackgroundSync Example</title>
- </head>
- <body>
-   <div id="connectionStatus">You are currently offline. Any requests made will be queued and synced as soon as you are connected again.</div>
-   <p>Click on the button below to make an HTTP request.<p>
-   <button id="requestButton">Make an HTTP request - do it!</button>
-	<script>
-  // Connection Status
-  function isOnline() {
-    var connectionStatus = document.getElementById('connectionStatus');
-    if (navigator.onLine){
-      connectionStatus.innerHTML = 'You are currently online!';
-    }
-    else{
-      connectionStatus.innerHTML = 'You are currently offline. Any requests made will be queued and synced as soon as you are connected again.';
-    }
-  }
-  window.addEventListener('online', isOnline);
-  window.addEventListener('offline', isOnline);
-  isOnline();
-    // Service Worker code
-    if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./sw.js').then((registration) => {
-          return navigator.serviceWorker.ready;
-        }).then((registration) => {
-          // register sync
-          document.getElementById('requestButton').addEventListener('click', () => {
-            registration.sync.register('image-fetch').then(() => {
-              console.log('sync registered');
-            }).catch(function(error){
-              console.log('Unable to fetch image.');
+
+<head>
+    <meta charset="UTF-8">
+    <title>Basic BackgroundSync Example</title>
+</head>
+
+<body>
+    <h1>Heyy</h1>
+    <button onclick="getData()">GetData</button>
+    <script>
+        // Service Worker code
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then((registration) => {
+                return navigator.serviceWorker.ready;
+            }).catch(function (error) {
+                console.log('Unable to register Service Worker.');
             });
-          });
-        }).catch(function(error){
-          console.log('Unable to register Service Worker.');
-        });
-    }
-    else{
-      console.log('Service Worker functionality not supported.');
-    }
-	</script>
-  </body>
+        } else {
+            console.log('Service Worker functionality not supported.');
+        }
+
+        function getData() {
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+        }
+    </script>
+</body>
+
 </html>
