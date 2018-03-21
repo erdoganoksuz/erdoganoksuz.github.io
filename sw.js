@@ -18,7 +18,7 @@ self.addEventListener('sync', function (event) {
 
 function fetchDogImage() {
   console.log('firing: doSomeStuff()');
-  fetch('http://img7.mynet.com/galeri/2016/02/29/115015841/6299874-600x406.jpg')
+  fetch('https://static.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg')
     .then(function (response) {
       return response;
     })
