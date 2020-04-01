@@ -30,7 +30,7 @@
     background-color: rgb(103, 233, 16)
 }
 
-wrapper.input{
+.wrapper > input{
     padding: 30px;
     width: 80%;
     font-size: 32px;
